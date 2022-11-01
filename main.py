@@ -9,6 +9,7 @@ from utils.image import (
 )
 from solution import compute_solution
 
+
 def main():  # pylint: disable=missing-function-docstring
     #Use the provided implementation that best suits your needs
     #image_type: fp.ImageType = fp.ImageType.PackedImageType
