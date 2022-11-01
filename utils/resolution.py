@@ -5,7 +5,7 @@ class Resolution:
         self.width: int = width
         self.height: int = height
     
-    def __str__ (self):
+    def __str__(self):
         return '(' + str(self.width) + ', ' + str(self.height) + ')'
 
     def __eq__(self, other):

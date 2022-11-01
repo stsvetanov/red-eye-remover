@@ -2,6 +2,7 @@
 
 from timeit import default_timer as timer
 
+
 class FunctionTracer:
     def __init__(self, func_name: str, message_postfix: str):
         self.start = timer()

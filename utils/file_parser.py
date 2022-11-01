@@ -17,7 +17,8 @@ from utils.pixel import (
 )
 from utils.resolution import Resolution
 from utils.function_tracer import FunctionTracer
-    
+
+
 def generate_io_data(input_file_name: str, output_file_name: str, image_type: ImageType) -> \
     Tuple[List[Union[PackedImage, StrideImage]], List[Union[PackedImage, StrideImage]]]:
     ft = FunctionTracer("generate_io_data", "seconds //not included into solution timings")
@@ -59,6 +60,7 @@ def generate_data(file_name: str, image_type: ImageType) -> List[PackedImage]:
             del tokens
 
     return images
+
 
 def print_images(images: List[Union[PackedImage, StrideImage]]) -> None:
     for index, image in enumerate(images):

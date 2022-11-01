@@ -5,9 +5,11 @@ from utils.resolution import Resolution
 from utils.pixel import Pixel
 from enum import Enum
 
+
 class ImageType(Enum):
     PackedImageType = 0
     StrideImageType = 1
+
 
 class PackedImage:
     def __init__(self, resolution: Resolution, pixels: List[Pixel]):
@@ -19,6 +21,7 @@ class PackedImage:
 
     def __eq__(self, other):
         return self.resolution == other.resolution and self.pixels == other.pixels
+
 
 class StrideImage:
     def __init__(self, resolution: Resolution, pixels: List[Pixel]):
@@ -48,7 +51,7 @@ class StrideImage:
             self.pixels_blue.append(pixel.blue)
             self.pixels_alpha.append(pixel.alpha)
     
-    def __str__ (self):
+    def __str__(self):
         return str(self.resolution) + '\n' + \
             ' '.join(str(p) for p in self.pixels_red) + \
             ' '.join(str(p) for p in self.pixels_green) + \
@@ -62,8 +65,10 @@ class StrideImage:
             self.pixels_blue == other.pixels_blue and \
             self.pixels_alpha == other.pixels_alpha
 
+
 def to_stride_image(image: PackedImage) -> StrideImage:
     return StrideImage(image.resolution, image.pixels)
+
 
 def to_image(stride_image: StrideImage) -> PackedImage:
     return PackedImage(stride_image.resolution, stride_image.merge_pixel_components())
