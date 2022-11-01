@@ -66,7 +66,7 @@ def compute_solution(images: List[Union[PackedImage, StrideImage]]):
         patterns = [EYE_PATTERN_3, EYE_PATTERN_1, EYE_PATTERN_2, EYE_PATTERN_4]
         # patterns = [EYE_PATTERN_1, EYE_PATTERN_2, EYE_PATTERN_3, EYE_PATTERN_4]
 
-        # print_image(image)
+        print_image(image)
 
         print(f"Processing image: {index}")
 
@@ -79,6 +79,6 @@ def compute_solution(images: List[Union[PackedImage, StrideImage]]):
                                            pattern=pattern,
                                            image_width=image_width)
 
-        # print_image(image)
+        print_image(image)
 
     del ft
