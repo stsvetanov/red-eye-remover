@@ -16,26 +16,16 @@ from utils.function_tracer import FunctionTracer
 from utils.eye_pattern import EYE_PATTERN_1, EYE_PATTERN_2, EYE_PATTERN_3, EYE_PATTERN_4
 
 
-# Might increase the performance if used
-# from bitmap import BitMap
-# pattern_1 = [
-#     BitMap.fromstring("11111"),
-#     BitMap.fromstring("10001"),
-#     BitMap.fromstring("11111"),
-#     BitMap.fromstring("10001"),
-#     BitMap.fromstring("11111")
-# ]
-
 def print_image(image):
     image_height = image.resolution.height
     image_width = image.resolution.width
     pixels_red = image.pixels_red
     pattern_width = len(EYE_PATTERN_1)
     pattern_height = len(EYE_PATTERN_1[0])
-    for row_pointer in range(0, image_height - pattern_height):
+    for img_row in range(0, image_height - pattern_height):
         buffer = []
-        for col_pointer in range(0, image_width - pattern_width):
-            if pixels_red[image_width * row_pointer + col_pointer] > 200:
+        for img_col in range(0, image_width - pattern_width):
+            if pixels_red[image_width * img_row + img_col] > 200:
                 buffer.append("*")
             else:
                 buffer.append("O")
@@ -76,19 +66,19 @@ def compute_solution(images: List[Union[PackedImage, StrideImage]]):
         patterns = [EYE_PATTERN_3, EYE_PATTERN_1, EYE_PATTERN_2, EYE_PATTERN_4]
         # patterns = [EYE_PATTERN_1, EYE_PATTERN_2, EYE_PATTERN_3, EYE_PATTERN_4]
 
-        print_image(image)
+        # print_image(image)
 
         print(f"Processing image: {index}")
 
         for pattern in patterns:
             print(pattern)
-            for row_pointer in range(0, image_height - len(pattern)):
-                for col_pointer in range(0, image_width - len(pattern[0])):
+            for img_row in range(0, image_height - len(pattern)):
+                for img_col in range(0, image_width - len(pattern[0])):
                     find_and_apply_pattern(pixels_in_channel=pixels_red,
-                                           position=(row_pointer, col_pointer),
+                                           position=(img_row, img_col),
                                            pattern=pattern,
                                            image_width=image_width)
 
-        print_image(image)
+        # print_image(image)
 
     del ft

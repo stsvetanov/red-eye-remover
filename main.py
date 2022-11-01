@@ -15,8 +15,11 @@ def main():  # pylint: disable=missing-function-docstring
     #image_type: fp.ImageType = fp.ImageType.PackedImageType
     image_type: fp.ImageType = fp.ImageType.StrideImageType
     
-    input_file_name = "datasets/small_test_data/input.bin"
-    output_file_name = "datasets/small_test_data/output.bin"
+    # input_file_name = "datasets/small_test_data/input.bin"
+    # output_file_name = "datasets/small_test_data/output.bin"
+
+    input_file_name = "datasets/big_test_case/input.bin"
+    output_file_name = "datasets/big_test_case/output.bin"
     
     #NOTE: data loading could take at least several seconds with big test files
     input_images, output_images = fp.generate_io_data(input_file_name, output_file_name, image_type)
